@@ -1,0 +1,360 @@
+1   A Scalable Language 49
+	1.1     A language that grows on you  .  .  .  .  .  .  .  .  .  .  .  .  .  .         50
+	1.2     What makes Scala scalable?  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         55
+	1.3     Why Scala? .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         58
+	1.4     Scala’s roots  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         65
+	1.5     Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         67
+
+2   First Steps in Scala 68
+	Step 1. Learn to use the Scala interpreter .  .  .  .  .  .  .  .  .  .  .  .         68
+	Step 2. Deﬁne some variables   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         70
+	Step 3. Deﬁne some functions   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         72
+	Step 4. Write some Scala scripts  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         74
+	Step 5. Loop with while; decide with if    .  .  .  .  .  .  .  .  .  .  .         75
+	Step 6. Iterate with foreach and for    .  .  .  .  .  .  .  .  .  .  .  .  .         77
+	Conclusion   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         80
+
+3   Next Steps in Scala 81
+	Step 7.   Parameterize arrays with types   .  .  .  .  .  .  .  .  .  .  .  .         81
+	Step 8.   Use lists  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         85
+	Step 9.   Use tuples  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         90
+	Step 10. Use sets and maps  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         91
+	Step 11. Learn to recognize the functional style  .  .  .  .  .  .  .  .         96
+	Step 12. Read lines from a ﬁle  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .         99
+	Conclusion   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        102
+
+4   Classes and Objects 103
+	4.1     Classes, ﬁelds, and methods  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        103
+	4.2     Semicolon inference  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        108
+	4.3     Singleton objects .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        109
+	4.4     A Scala application   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        112
+	4.5     The Application trait .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        115
+	4.6     Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        116
+
+5   Basic Types and Operations 117
+	5.1     Some basic types .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        117
+	5.2     Literals  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        118
+	5.3     Operators are methods  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        125
+	5.4     Arithmetic operations   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        128
+	5.5     Relational and logical operations   .  .  .  .  .  .  .  .  .  .  .  .        129
+	5.6     Bitwise operations  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        131
+	5.7     Object equality .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        132
+	5.8     Operator precedence and associativity .  .  .  .  .  .  .  .  .  .        134
+	5.9     Rich wrappers  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        137
+	5.10   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        137
+
+6   Functional Objects 139
+	6.1     A speciﬁcation for class Rational   .  .  .  .  .  .  .  .  .  .  .        139
+	6.2     Constructing a Rational   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        140
+	6.3     Reimplementing the toString method  .  .  .  .  .  .  .  .  .        142
+	6.4     Checking preconditions   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        143
+	6.5     Adding ﬁelds .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        143
+	6.6     Self references  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        145
+	6.7     Auxiliary constructors  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        146
+	6.8     Private ﬁelds and methods  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        148
+	6.9     Deﬁning operators  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        149
+	6.10   Identiﬁers in Scala  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        151
+	6.11   Method overloading  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        154
+	6.12   Implicit conversions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        156
+	6.13   A word of caution  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        157
+	6.14   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        157
+
+7   Built-in Control Structures 159
+	7.1     If expressions   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        160
+	7.2     While loops   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        161
+	7.3     For expressions .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        164
+	7.4     Exception handling with try expressions  .  .  .  .  .  .  .  .        169
+	7.5     Match expressions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        173
+	7.6     Living without break and continue   .  .  .  .  .  .  .  .  .  .        175
+	7.7     Variable scope  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        177
+	7.8     Refactoring imperative-style code  .  .  .  .  .  .  .  .  .  .  .  .        181
+	7.9     Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        183
+
+8   Functions and Closures 184
+	8.1     Methods   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        184
+	8.2     Local functions .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        186
+	8.3     First-class functions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        188
+	8.4     Short forms of function literals   .  .  .  .  .  .  .  .  .  .  .  .  .        190
+	8.5     Placeholder syntax .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        191
+	8.6     Partially applied functions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        192
+	8.7     Closures   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        195
+	8.8     Special function call forms .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        199
+	8.9     Tail recursion .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        202
+	8.10   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        206
+
+9   Control Abstraction 207
+	9.1     Reducing code duplication .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        207
+	9.2     Simplifying client code   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        211
+	9.3     Currying  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        213
+	9.4     Writing new control structures .  .  .  .  .  .  .  .  .  .  .  .  .  .        215
+	9.5     By-name parameters  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        218
+	9.6     Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        221
+
+10  Composition and Inheritance 222
+	10.1   A two-dimensional layout library  .  .  .  .  .  .  .  .  .  .  .  .        222
+	10.2   Abstract classes   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        223
+	10.3   Deﬁning parameterless methods .  .  .  .  .  .  .  .  .  .  .  .  .        224
+	10.4   Extending classes   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        227
+	10.5   Overriding methods and ﬁelds .  .  .  .  .  .  .  .  .  .  .  .  .  .        229
+	10.6   Deﬁning parametric ﬁelds  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        230
+	10.7   Invoking superclass constructors .  .  .  .  .  .  .  .  .  .  .  .  .        232
+	10.8   Using override modiﬁers .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        233
+	10.9   Polymorphism and dynamic binding   .  .  .  .  .  .  .  .  .  .        235
+	10.10 Declaring ﬁnal members .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        237
+	10.11 Using composition and inheritance   .  .  .  .  .  .  .  .  .  .  .        239
+	10.12 Implementing above, beside, and toString .  .  .  .  .  .        240
+	10.13 Deﬁning a factory object .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        242
+	10.14 Heighten and widen  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        244
+	10.15 Putting it all together .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        248
+	10.16 Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        249
+
+11  Scala’s Hierarchy 250
+	11.1   Scala’s class hierarchy  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        250
+	11.2   How primitives are implemented   .  .  .  .  .  .  .  .  .  .  .  .        254
+	11.3   Bottom types .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        256
+	11.4   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        257
+
+12  Traits 258
+	12.1   How traits work   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        258
+	12.2   Thin versus rich interfaces .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        261
+	12.3   Example: Rectangular objects  .  .  .  .  .  .  .  .  .  .  .  .  .  .        262
+	12.4   The Ordered trait   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        265
+	12.5   Traits as stackable modiﬁcations .  .  .  .  .  .  .  .  .  .  .  .  .        267
+	12.6   Why not multiple inheritance? .  .  .  .  .  .  .  .  .  .  .  .  .  .        271
+	12.7   To trait, or not to trait? .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        275
+	12.8   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        276
+
+13  Packages and Imports 277
+	13.1   Putting code in packages .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        277
+	13.2   Concise access to related code .  .  .  .  .  .  .  .  .  .  .  .  .  .        278
+	13.3   Imports .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        282
+	13.4   Implicit imports   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        286
+	13.5   Access modiﬁers .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        287
+	13.6   Package objects   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        292
+	13.7   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        294
+
+14  Assertions and Unit Testing 295
+	14.1   Assertions   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        295
+	14.2   Unit testing in Scala  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        297
+	14.3   Informative failure reports  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        298
+	14.4   Using JUnit and TestNG .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        300
+	14.5   Tests as speciﬁcations  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        302
+	14.6   Property-based testing  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        305
+	14.7   Organizing and running tests   .  .  .  .  .  .  .  .  .  .  .  .  .  .        306
+	14.8   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        308
+
+15  Case Classes and Pattern Matching 309
+	15.1   A simple example   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        309
+	15.2   Kinds of patterns .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        314
+	15.3   Pattern guards   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        324
+	15.4   Pattern overlaps   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        325
+	15.5   Sealed classes   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        326
+	15.6   The Option type .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        328
+	15.7   Patterns everywhere  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        330
+	15.8   A larger example .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        335
+	15.9   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        343
+
+16  Working with Lists 344
+	16.1   List literals  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        344
+	16.2   The List type  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        345
+	16.3   Constructing lists .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        345
+	16.4   Basic operations on lists  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        346
+	16.5   List patterns   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        347
+	16.6   First-order methods on class List .  .  .  .  .  .  .  .  .  .  .  .        349
+	16.7   Higher-order methods on class List    .  .  .  .  .  .  .  .  .  .        361
+	16.8   Methods of the List object   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        369
+	16.9   Processing multiple lists together  .  .  .  .  .  .  .  .  .  .  .  .        371
+	16.10 Understanding Scala’s type inference algorithm .  .  .  .  .        372
+	16.11 Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        376
+
+17  Collections 377
+	17.1   Sequences   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        377
+	17.2   Sets and maps   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        381
+	17.3   Selecting mutable versus immutable collections   .  .  .  .        390
+	17.4   Initializing collections  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        392
+	17.5   Tuples   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        396
+	17.6   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        398
+
+18  Stateful Objects 399
+	18.1   What makes an object stateful?   .  .  .  .  .  .  .  .  .  .  .  .  .        399
+	18.2   Reassignable variables and properties  .  .  .  .  .  .  .  .  .  .        402
+	18.3   Case study: Discrete event simulation .  .  .  .  .  .  .  .  .  .        405
+	18.4   A language for digital circuits  .  .  .  .  .  .  .  .  .  .  .  .  .  .        406
+	18.5   The Simulation API   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        409
+	18.6   Circuit Simulation  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        413
+	18.7   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        421
+
+19  Type Parameterization 422
+	19.1   Functional queues  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        422
+	19.2   Information hiding .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        426
+	19.3   Variance annotations .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        429
+	19.4   Checking variance annotations .  .  .  .  .  .  .  .  .  .  .  .  .  .        433
+	19.5   Lower bounds   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        436
+	19.6   Contravariance  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        438
+	19.7   Object private data  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        441
+	19.8   Upper bounds   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        443
+	19.9   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        446
+
+20  Abstract Members 447
+	20.1   A quick tour of abstract members  .  .  .  .  .  .  .  .  .  .  .  .        447
+	20.2   Type members  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        448
+	20.3   Abstract vals .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        449
+	20.4   Abstract vars .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        450
+	20.5   Initializing abstract vals .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        451
+	20.6   Abstract types  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        459
+	20.7   Path-dependent types   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        461
+	20.8   Structural subtyping  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        464
+	20.9   Enumerations .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        466
+	20.10 Case study: Currencies .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        468
+	20.11 Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        478
+
+21  Implicit Conversions and Parameters 479
+	21.1   Implicit conversions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        479
+	21.2   Rules for implicits  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        482
+	21.3   Implicit conversion to an expected type  .  .  .  .  .  .  .  .  .        485
+	21.4   Converting the receiver   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        486
+	21.5   Implicit parameters .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        489
+	21.6   View bounds  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        495
+	21.7   When multiple conversions apply  .  .  .  .  .  .  .  .  .  .  .  .        498
+	21.8   Debugging implicits  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        501
+	21.9   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        502
+
+22  Implementing Lists 503
+	22.1   The List class in principle   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        503
+	22.2   The ListBuffer class .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        509
+	22.3   The List class in practice  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        511
+	22.4   Functional on the outside   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        513
+	22.5   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        514
+
+23  For Expressions Revisited 516
+	23.1   For expressions .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        517
+	23.2   The n-queens problem  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        519
+	23.3   Querying with for expressions   .  .  .  .  .  .  .  .  .  .  .  .  .        522
+	23.4   Translation of for expressions .  .  .  .  .  .  .  .  .  .  .  .  .  .        524
+	23.5   Going the other way  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        528
+	23.6   Generalizing for .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        529
+	23.7   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        531
+
+24  The Scala Collections API 532
+	24.1   Mutable and immutable collections  .  .  .  .  .  .  .  .  .  .  .        533
+	24.2   Collections consistency   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        535
+	24.3   Trait Traversable .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        537
+	24.4   Trait Iterable .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        542
+	24.5   The sequence traits Seq, IndexedSeq, and LinearSeq  .        546
+	24.6   Sets .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        551
+	24.7   Maps  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        557
+	24.8   Synchronized sets and maps  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        562
+	24.9   Concrete immutable collection classes   .  .  .  .  .  .  .  .  .        564
+	24.10 Concrete mutable collection classes  .  .  .  .  .  .  .  .  .  .  .        571
+	24.11 Arrays   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        578
+	24.12 Strings  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        583
+	24.13 Performance characteristics  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        584
+	24.14 Equality   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        585
+	24.15 Views .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        587
+	24.16 Iterators   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        593
+	24.17 Creating collections from scratch  .  .  .  .  .  .  .  .  .  .  .  .        601
+	24.18 Conversions between Java and Scala collections   .  .  .  .        603
+	24.19 Migrating from Scala 2.7   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        605
+	24.20 Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        606
+
+25  The Architecture of Scala Collections 607
+	25.1   Builders   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        608
+	25.2   Factoring out common operations  .  .  .  .  .  .  .  .  .  .  .  .        609
+	25.3   Integrating new collections   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        614
+	25.4   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        630
+
+26  Extractors 631
+	26.1   An example: extracting email addresses .  .  .  .  .  .  .  .  .        631
+	26.2   Extractors   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        632
+	26.3   Patterns with zero or one variables   .  .  .  .  .  .  .  .  .  .  .        635
+	26.4   Variable argument extractors .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        637
+	26.5   Extractors and sequence patterns   .  .  .  .  .  .  .  .  .  .  .  .        640
+	26.6   Extractors versus case classes  .  .  .  .  .  .  .  .  .  .  .  .  .  .        641
+	26.7   Regular expressions  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        642
+	26.8   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        646
+
+27  Annotations 647
+	27.1   Why have annotations?   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        647
+	27.2   Syntax of annotations   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        648
+	27.3   Standard annotations .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        650
+	27.4   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        654
+
+28  Working with XML 655
+	28.1   Semi-structured data  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        655
+	28.2   XML overview .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        656
+	28.3   XML literals  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        657
+	28.4   Serialization  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        659
+	28.5   Taking XML apart  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        661
+	28.6   Deserialization  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        662
+	28.7   Loading and saving   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        663
+	28.8   Pattern matching on XML  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        665
+	28.9   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        668
+
+29  Modular Programming Using Objects 669
+	29.1   The problem  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        670
+	29.2   A recipe application  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        671
+	29.3   Abstraction .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        674
+	29.4   Splitting modules into traits  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        677
+	29.5   Runtime linking   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        680
+	29.6   Tracking module instances .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        681
+	29.7   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        683
+
+30  Object Equality 684
+	30.1   Equality in Scala .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        684
+	30.2   Writing an equality method   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        685
+	30.3   Deﬁning equality for parameterized types .  .  .  .  .  .  .  .        698
+	30.4   Recipes for equals and hashCode    .  .  .  .  .  .  .  .  .  .  .        703
+	30.5   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        709
+
+31  Combining Scala and Java 710
+	31.1   Using Scala from Java  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        710
+	31.2   Annotations   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        713
+	31.3   Existential types  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        718
+	31.4   Using synchronized   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        722
+	31.5   Compiling Scala and Java together   .  .  .  .  .  .  .  .  .  .  .        722
+	31.6   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        723
+
+32  Actors and Concurrency 724
+	32.1   Trouble in paradise .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        724
+	32.2   Actors and message passing  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        725
+	32.3   Treating native threads as actors .  .  .  .  .  .  .  .  .  .  .  .  .        729
+	32.4   Better performance through thread reuse   .  .  .  .  .  .  .  .        730
+	32.5   Good actors style .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        733
+	32.6   A longer example: Parallel discrete event simulation  .  .        740
+	32.7   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        757
+
+33  Combinator Parsing 759
+	33.1   Example: Arithmetic expressions  .  .  .  .  .  .  .  .  .  .  .  .        760
+	33.2   Running your parser  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        762
+	33.3   Basic regular expression parsers .  .  .  .  .  .  .  .  .  .  .  .  .        763
+	33.4   Another example: JSON .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        764
+	33.5   Parser output  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        766
+	33.6   Implementing combinator parsers  .  .  .  .  .  .  .  .  .  .  .  .        772
+	33.7   String literals and regular expressions .  .  .  .  .  .  .  .  .  .        781
+	33.8   Lexing and parsing .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        782
+	33.9   Error reporting  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        782
+	33.10 Backtracking versus LL(1) .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        784
+	33.11 Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        786
+
+34  GUI Programming 788
+	34.1   A ﬁrst Swing application .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        788
+	34.2   Panels and layouts  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        791
+	34.3   Handling events   .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        793
+	34.4   Example: Celsius/Fahrenheit converter  .  .  .  .  .  .  .  .  .        796
+	34.5   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        798
+
+35  The SCells Spreadsheet 800
+	35.1   The visual framework  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        800
+	35.2   Disconnecting data entry and display  .  .  .  .  .  .  .  .  .  .        803
+	35.3   Formulas  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        806
+	35.4   Parsing formulas  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        808
+	35.5   Evaluation  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        813
+	35.6   Operation libraries  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        816
+	35.7   Change propagation  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        819
+	35.8   Conclusion  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .        823
+
+A   Scala Scripts on Unix and Windows 825
+Glossary 826
+Bibliography 842
+About the Authors 845
+Index 846
