@@ -1,4 +1,4 @@
-package chapter01.item01
+package chapter01
 
 import java.util.HashMap
 

@@ -1,6 +1,7 @@
-package chapter01.item01
+package chapter01
 
 import java.math.BigInteger;
+import scala.math.BigInt.int2bigInt
 /**
  * 1.1 점점 여러분의 마음에서 자라가는 언어
  */

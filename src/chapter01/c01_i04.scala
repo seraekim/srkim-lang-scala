@@ -1,4 +1,4 @@
-package chapter01.item01
+package chapter01
 
 /**
  * 1.4 스칼라의 뿌리
