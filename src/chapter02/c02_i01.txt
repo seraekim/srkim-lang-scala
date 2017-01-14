@@ -1,10 +1,16 @@
+2장 스칼라 첫걸음
+
+1단계: 스칼라 인터프리터 사용법을 익히자
+설명을 위한 부분은 주석을 쓰겠다.
+
 C:\Users\srkim>scala
 Welcome to Scala 2.12.0 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_91).
 Type in expressions for evaluation. Or try :help.
 
 scala> 1+2
 res0: Int = 3
-
+// res0: Int = 0번째 result, 콜론과 타입, 등호, 결과 값
+// res0은 재활용이 가능
 scala> res0
 res1: Int = 3
 
@@ -31,7 +37,8 @@ scala> println(res0);
 
 scala> println()
 
-
+2단계: 변수를 정의해보자
+// val은 final과 같다. var는 계속 객체할당이 가능. 타입추론 String
 scala> val msg = "Hello, world!"
 msg: String = Hello, world!
 
@@ -61,7 +68,7 @@ greeting: String = Leave me alone, world!
 scala> val multiLine =
      | "This is the next line."
 multiLine: String = This is the next line.
-
+// 두번 엔터하면 벗어남
 scala> val s =
      |
      |
@@ -74,11 +81,11 @@ scala> val s =
 <console>:12: error: recursive value s needs type
        s
        ^
-
+3단계: 함수를 정의해보자
 scala> def max(x: Int, y: Int): Int = {
      | if(x>y) x else y }
 max: (x: Int, y: Int)Int
-
+// 반환 타입은 타입추론이 가능하다면 생략해도 되지만, 재귀적으로 쓰면 반드시 명시해야 함.
 scala> def max2(x: Int, y: Int) = if(x>y) x else y
 max2: (x: Int, y: Int)Int
 

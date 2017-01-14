@@ -1,0 +1,62 @@
+4단계: 스칼라 스크립트를 작성해보자.
+스칼라는 아주 큰 시스템도 구축할 수 있지만, 스크립트를 만들때도 유용하다.
+
+hello.scala 파일을 만들고
+println("Hello, world, from a script!")
+
+그리고 실행
+$ scala hello.scala
+
+args라는 스칼라 배열에 명령행 인자를 받는다.
+
+println("Hello, "+args(0)+"!")
+
+$ scala hello.scala
+
+5단계: while로 루프를 돌고, if로 결정해보자
+
+파일 : printargs.scala
+
+var i = 0 // scala.Int 타입추론
+while (i < args.length) {
+  println(args(i))
+  i += 1
+}
+
+위 예제는 바람직한 스칼라 프로그래밍은 아니다.
+
+$ scala printargs.scala Scala is fun
+
+파일 : echoargs.scala
+
+var i = 0
+while (i < args.length) {
+  if (i != 0)
+    print(" ")
+  print(args(i))
+  i += 1
+}
+println()
+
+6단계: foreach와 for를 사용해 이터레이션해보자
+위의 while 명령형 스타일 말고, 함수형으로 가자면...
+
+args.foreach(arg => println(arg))
+
+타입을 명시하고 싶다면  괄호로 감싸주고 하면 된다.
+args.foreach((arg: String) => println(arg))
+
+함수리터럴이 인자를 하나만 받는 문장인 경우에는 해당 인자에 이름을 붙일 필요 없다.
+args.foreach(println)
+
+함수리터럴 문법
+(x: Int, y: Int) => x + y
+(인자: 타입, 인자: 타입) => 함수 본문
+
+파일: forargs.scala
+
+for (arg <- args)
+  println(arg)
+
+<-를 영어로는 in 이라 할 수있음.
+왼쪽의 arg는 val, 항상 새 val값이 들어감
