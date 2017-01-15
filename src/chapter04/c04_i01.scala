@@ -2,6 +2,7 @@ package chapter04
 
 /**
  * 4장 클래스와 객체
+ * 
  * 4.1 클래스, 필드, 메소드
  */
 object c04_i01 {
