@@ -16,6 +16,20 @@ object c09_i02 extends App {
     exists
   }
   containsNeg(List(1,2,-3,4))
-  // 다음과 같이 고차 함수인 exists를 호출한다면 좀 더 간결하게 정의할 수 있다.
+  /*
+   * 다음과 같이 고차 함수인 exists를 호출한다면 좀 더 간결하게 정의할 수 있다.
+   * 흐름 제어 추상화를 보여준다.
+   */
   def containsNeg2(nums: List[Int]) = nums.exists(_ < 0)
+  
+  
+  def containsOdd(nums: List[Int]): Boolean = {
+    var exists = false
+    for (num <- nums)
+      if (num % 2 == 1)
+        exists = true
+    exists
+  }
+  def containsOdd2(nums: List[Int]) = nums.exists(_ % 2 == 1)
+  
 }
