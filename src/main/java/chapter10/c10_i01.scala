@@ -24,15 +24,20 @@ object spiral {
   val corner = elem("+")
   def spiral(nEdges: Int, direction: Int): Element = {
     if (nEdges == 1)
-      space //elem("+")
+      corner //elem("+")
     else {
       val sp = spiral(nEdges - 1, (direction + 3) % 4)
       def verticalBar = elem('|', 1, sp.height)
       def horizontalBar = elem('-', sp.width, 1)
-      if (direction == 0) (corner beside horizontalBar) above (sp beside space)
-      else if (direction == 1) (sp above space) beside (corner above verticalBar)
-      else if (direction == 2) (space beside sp) above (horizontalBar beside corner)
-      else (verticalBar above corner) beside (space above sp)
+      //println(nEdges,direction,sp.contents.toList,verticalBar.contents.toList,horizontalBar.contents.toList)
+      if (direction == 0) {println(nEdges,direction,horizontalBar.contents.toList,sp.contents.toList)
+        (corner beside horizontalBar) above (sp beside space)}
+      else if (direction == 1) {println(nEdges,direction,sp.contents.toList,verticalBar.contents.toList)
+        (sp above space) beside (corner above verticalBar)}
+      else if (direction == 2) {println(nEdges,direction,sp.contents.toList,horizontalBar.contents.toList)
+        (space beside sp) above (horizontalBar beside corner)}
+      else {println(nEdges, direction,verticalBar.contents.toList,sp.contents.toList)
+        (verticalBar above corner) beside (space above sp)}
     }
   }
   // 인터프리터에서 테스트할거라면, Spiral.main(~) 으로 호출하면 된다.
