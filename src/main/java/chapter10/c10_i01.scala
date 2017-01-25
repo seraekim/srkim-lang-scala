@@ -1,5 +1,6 @@
 package chapter10
 
+import Element.elem
 /**
  * 10장 상속과 구성
  * 
@@ -15,7 +16,35 @@ package chapter10
  * 10.2 추상 클래스
  *  - Element.scala
  * 
+ * 10.5 한데 모아 시험해보기
+ * 
  */
-object c10_i01 {
+object spiral {
+  val space = elem(" ")
+  val corner = elem("+")
+  def spiral(nEdges: Int, direction: Int): Element = {
+    if (nEdges == 1)
+      space //elem("+")
+    else {
+      val sp = spiral(nEdges - 1, (direction + 3) % 4)
+      def verticalBar = elem('|', 1, sp.height)
+      def horizontalBar = elem('-', sp.width, 1)
+      if (direction == 0) (corner beside horizontalBar) above (sp beside space)
+      else if (direction == 1) (sp above space) beside (corner above verticalBar)
+      else if (direction == 2) (space beside sp) above (horizontalBar beside corner)
+      else (verticalBar above corner) beside (space above sp)
+    }
+  }
+  // 인터프리터에서 테스트할거라면, Spiral.main(~) 으로 호출하면 된다.
+  def main(args: Array[String]): Unit = {
+    //val nSides = args(0).toInt
+    println(spiral(17, 0))
+  }
   
+  /*val e1: Element = new ArrayElement(Array("Hello, world"))
+  println("e1 : "+e1.contents.toList)
+  val e2: Element = new LineElement("Hello")
+  println("e2 : "+e2.contents.toList)
+  val e3: Element = new UniformElement('x', 2, 3)
+  println("e3 : "+e3.contents.toList)*/
 }
