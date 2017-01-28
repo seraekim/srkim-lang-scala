@@ -44,6 +44,23 @@ object spiral {
   def main(args: Array[String]): Unit = {
     //val nSides = args(0).toInt
     println(spiral(17, 0))
+/*+----------------
+|                
+| +------------+ 
+| |            | 
+| | +--------+ | 
+| | |        | | 
+| | | +----+ | | 
+| | | |    | | | 
+| | | | ++ | | | 
+| | | |  | | | | 
+| | | +--+ | | | 
+| | |      | | | 
+| | +------+ | | 
+| |          | | 
+| +----------+ | 
+|              | 
++--------------+ */
   }
   
   /*val e1: Element = new ArrayElement(Array("Hello, world"))
