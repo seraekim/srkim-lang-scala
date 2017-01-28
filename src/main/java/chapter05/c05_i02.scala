@@ -2,7 +2,8 @@ package chapter05
 
 /**
  * 5.2 리터럴
- * 리터럴은 상수 값은 코드에 직접 적는 방법을 의미한다.
+ * 
+ * 리터럴은 상수 값을 코드에 직접 적는 방법을 의미한다.
  */
 object c05_i02 {
   def main(args: Array[String]): Unit = {
