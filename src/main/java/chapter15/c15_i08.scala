@@ -7,6 +7,12 @@ import chapter10.Element.elem
  * 15.8 좀 더 큰 예제
  *
  * 산술식을 2차원으로 배열해 보여주는 형식화 클래스(formatter class)를 작성하자.
+ * 
+ * 15.9 결론
+ * 
+ * 스칼라 패턴 매치는 15장 상상 이상이다. 클래스 필드를 외부에 노출하고 싶지 않다면
+ * 26장의 extractor를 사용할 수 있다.
+ * 
  */
 class ExprFormatter {
   // 연산자를 우선순위가 커지는 순서로 나열한 ㅐㅂ열
@@ -84,4 +90,32 @@ object c15_i08 extends App {
   val arr = Array(e1, e2, e3, e4)
   //for (e <- arr) show(e)
   arr.foreach(show)
+/*  
+1          
+- * (x + 1)
+2          
+
+
+x   1.5
+- + ---
+2    x 
+
+
+1          
+- * (x + 1)
+2          
+-----------
+  x   1.5  
+  - + ---  
+  2    x   
+
+
+ a 
+---
+ x 
+ - 
+ 1 
+
+*/
+
 }
