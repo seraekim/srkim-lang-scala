@@ -7,7 +7,7 @@ package chapter16
  */
 object c16_i07 extends App {
   /*
-   * 리스트 매핑: map, flatMap, foreach
+   * 1. 리스트 매핑: map, flatMap, foreach
    * 
    * xs: List[T] map f: T => U
    * 모든 원소에 함수 f를 적용한 리스트를 반환
@@ -37,7 +37,7 @@ object c16_i07 extends App {
   intList foreach (sum += _)
 
   /*
-   * 리스트 걸러내기: filter, partition, find, takeWhile, dropWhile, span
+   * 2. 리스트 걸러내기: filter, partition, find, takeWhile, dropWhile, span
    * 
    * xs:List[T] filter p: T => Boolean
    * xs:List[T] partition p: T => Boolean, filter의 참거짓 순서쌍(튜플) 반환
@@ -61,7 +61,7 @@ object c16_i07 extends App {
   println(List(1, 2, 3, -4, 5) span (_ > 0))
 
   /*
-   * 리스트 전체에 대한 술어: forall과 exists
+   * 3. 리스트 전체에 대한 술어: forall과 exists
    * 
    * xs forall p, 리스트의 모든 원소가 p를 만족할 때 true
    * xs exists p, 리스트의 원소 하나라도 p를 만족할 때 true
@@ -76,7 +76,7 @@ object c16_i07 extends App {
   println(hasZeroRow(row2))
   
   /*
-   * 리스트 폴드: /:과 :\
+   * 4. 리스트 폴드: /:과 :\
    * 
    * 또 다른 일반적인 연산으로 리스트의 원소를 어떤 연산자를 가지고 결합하는 것이다.
    * 왼쪽폴드연산 /: => (z /: xs)(op)
@@ -90,7 +90,31 @@ object c16_i07 extends App {
   println(sum(List(1,3,5))) // = 0 + 1 + 3 + 5
   println(product(List(1,3,5))) // = 1 * 1 * 3 * 5
   
-  // 다음 경우에서 Right가 Left보다 효율적이라는데 정확한 이유는 ?
+  // 다음 경우에서 Right가 Left보다 효율적이라는데 정확한 이유는 ? (리스트 앞쪽에 대해서는 빠른 접근 제공..)
+  /*
+   * 폴드 시작값인 빈 리스트에 타입표기를 했다는 것에 유의해야한다. 스칼라 타입 추론의 제약 때문이다.[T]
+   * /: 연산자가 직관적이지 못하다면 foldLeft, foldRight라는 이름의 메소드를 대신 사용할 수 있다.
+   */
   def flattenLeft[T](xss: List[List[T]]) = (List[T]() /: xss)(_ ::: _)
   def flattenRight[T](xss: List[List[T]]) = (xss :\ List[T]())(_ ::: _)
+  
+  /*
+   * 5. 폴드를 사용해 리스트 뒤집기
+   * 
+   * 16.6절에서 삽입정렬의 rev 메소드는 리스트 길이에 제곱에 비례하는 시간이
+   * 병합정렬의 경우 상수에 비례하는 시간이 걸렸는데, 상수에 비례하는 로직으로 왼쪽폴드를 사용해서 다시 메소드를 만들자면..
+   * reverseLeft와 같다. 피연산자를 맞바꾼 ::이기에 cons가 아닌 snoc이라 부르기도 하며, 이 연산이
+   * n번 적용된다.
+   */
+  def reverseLeft[T](xs: List[T]) = (List[T]() /: xs){(ys, y) => y :: ys}
+  
+  /*
+   * 6. 리스트 정렬: sortWith
+   * xs sortWith before
+   * x before y는 x가 앞에 있다면 true를 반환하는데, 병합정렬을 수행한다.
+   * 
+   * 앞에서 작성했던 msort와 같은 기능을 하는데 한가지 차이점이라면 List 클래스 안에 이미 정의되어 있는 메소드다.
+   */
+  println(List(1,-3,4,2,6) sortWith (_ < _))
+  println(words sortWith (_.length > _.length))
 }
