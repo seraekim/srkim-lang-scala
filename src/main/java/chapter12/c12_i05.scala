@@ -10,7 +10,7 @@ import scala.collection.mutable.ArrayBuffer
  * 
  * 정수로 된 큐(queue)에 변경을 쌓아나가자. 선입선출(FIFO) 구조다.
  *  - Doubling: 큐의 모든 정수를 2배로
- *  - Incremening: 모든 정수에 1을 더함
+ *  - Incrementing: 모든 정수에 1을 더함
  *  - Filtering: 큐에 있는 음수를 걸러낸다.
  * 
  * 위 세 트레이트는 각각 변경을 나타낸다. 왜냐하면 전체 큐 클래스를 정의하기보다는 어떤 기존 큐 클래스의
