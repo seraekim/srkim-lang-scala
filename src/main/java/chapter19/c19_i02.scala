@@ -36,6 +36,7 @@ package chapter19
  * 
  * 개별 생성자와, 메소드를 감추는 대신, 이 방식은 구현 클래스 전체를 감춘다.
  */
+/*
 trait Queue[T] {
   def head: T
   def tail: Queue[T]
@@ -62,3 +63,4 @@ object Queue {
     def enqueue(x: T) = new QueueImpl(leading, x :: trailing)
   }
 }
+*/
