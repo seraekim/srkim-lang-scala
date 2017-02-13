@@ -3,7 +3,7 @@ package chapter20
 /**
  * 20.6 추상 타입
  * 
- * type T라틑 추상 타입 선언의 의미와 사용법을 살펴보자.
+ * type T라는 추상 타입 선언의 의미와 사용법을 살펴보자.
  * 
  * 동물의 음식 섭취 행동을 모델링하자. 아마도 Food 클래스와 음식을 먹는 eat 메소드를 포함하는
  * Animal 클래스를 가지고 시작할 수 있을 것이다.
@@ -11,7 +11,7 @@ package chapter20
 class Food
 abstract class Animal {
   /*
-   * SuitableFood를 Animal의 서브클래 
+   * 추상 타입 SuitableFood의 상위 바운드는 Food
    */
   type SuitableFood <: Food
   def eat(food: SuitableFood)
