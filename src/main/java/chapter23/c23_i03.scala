@@ -6,7 +6,7 @@ package chapter23
  * for 표기법은 기본적으로 데이터베이스 질의 언어의 공통 연산들과 동등하다.
  */
 case class Book(title: String, authors: String*)
-object c23_i03 extends App {
+class BookList {
   val books: List[Book] = {
     List(
       Book(
@@ -31,6 +31,9 @@ object c23_i03 extends App {
       )
     )
   }
+}
+object c23_i03 extends App {
+  val books = new BookList().books;
   /*
    * 작가의 성이 Gosling인 모든 책의 제목을 찾는다면..
    */
