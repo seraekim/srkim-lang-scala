@@ -21,7 +21,31 @@ package chapter24
  *  - 정렬 연산: sorted, sortWith, sortBy는 시퀀스 원소들을 여러 기준에 따라 정렬한다.
  *  - 반전 연산: reverse, reverseIterator, reverseMap. 시퀀스의 원소를 역순, 즉 마지막에서
  *  맨 앞쪽으로 처리하거나 역순으로 토해낸다.
+ *  - 비교 연산: startsWith, endsWith, contains, corresponds, containsSlice.
+ *  두 시퀀스 간의 관계를 판단하거나, 시퀀스에서 원소를 찾는다.
+ *  - 중복 집합 연산: intersect, diff, union, distinct. 두 시퀀스에 대해 집합과 비슷한 연산을
+ *  수행하거나, 중복을 제거한다.
  *  
+ * 어떤 시퀀스가 변경 가능하다면, 추가로 부수 효과를 통해 시퀀스의 원소를 변경할 수 있는 update 메소드를 제공한다.
+ * 3장에서 이미 말했듯 seq(idx) = elem 은 seq.update(idx, elem)을 짧게 쓴 것일 뿐이다.
+ * update와 updated를 구분해야 한다. update는 그 자리에서 변경하고, 변경 가능한 시퀀스에서만 쓰인다.
+ * updated는 모든 시퀀스에서 사용 가능하며, 원래의 시퀀스를 변경하지 않고, 새로운 시퀀스를 반환한다.
+ * 
+ * 각 Seq 트레이트에는 두 가지 하위 트레이트 LinearSeq와 IndexedSeq가 있다. 이들은 새로운 연산을
+ * 추가하지는 않지만,성능 특성이 다르다. 선형 시퀀스는 더 효율적인 head, tail 연산을 제공하지만
+ * 인덱스 시퀀스는 효율적인 apply, length, (변경가능인 경우) update 연산을 제공한다. List나
+ * Stream은 가장 많이 쓰이는 선형 시퀀스다. 많이 쓰이는 인덱스 시컨스는 Array와 ArrayBuffer이다.
+ * Vector 클래스는 선형 접근과 인덱스 접근 사이에 흥미로운 절충점을 제공한다. 따라서, 인덱스와 선형 접근을
+ * 모두 사용해야 하는 혼합 접근 패턴의 경우 벡터가 좋은 기반 클래스가 될 수 있다.
+ * 
+ * 1. 버퍼
+ * 
+ * 변경 가능한 시퀀스의 중요한 하위 범주로 버퍼가 있다.
+ * 맨 뒤에 추가 : +=, ++=
+ * 맨 앞에 추가 : +=:, ++=:, insert, insertAll
+ * 원소제거 : -=, remove
+ * 
+ * 가장 많이 사용하는 버퍼구현은 ListBuffer, ArrayBuffer가 있다. 
  */
 object c24_i05 {
   
