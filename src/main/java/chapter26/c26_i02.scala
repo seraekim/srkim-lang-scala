@@ -17,7 +17,21 @@ package chapter26
  * 따라서, selectorString match { case EMail(user, domain) => ... } 식은
  * EMail.unapply(selectorString) 과 같은 호출이다.
  * 
- * val 
+ * val x: Any = ...
+ * x match { case EMail(user, domain) => ... }
+ * 
+ * 패턴 매치가 이런 코드를 본다면, 먼저 주어진 값 x가 EMail의 unapply 메소드 인자의 타입인
+ * String에 부합하는지 살펴볼 것이다.
+ * 
+ * 인젝션(apply)와 익스트랙션(unapply)는 쌍대성(dual)이어야 한다.
+ * 
+ * EMail.unapply(EMail.apply(user, domain)) 는 Some(user, domain)을 반환해야한 한다.
+ * 반대 방향은 아래와 같다.
+ * 
+ * EMail.unapply(obj) match {
+ *   case Some(u, d) => EMail.apply(u, d)
+ * }
+ * 
  */
 object EMail extends ((String, String) => String) {
   // injection method (선택)
