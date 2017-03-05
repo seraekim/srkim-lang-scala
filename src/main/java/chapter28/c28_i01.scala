@@ -36,8 +36,31 @@ package chapter28
  * 
  * 28.3 XML 리터럴
  * 
- * 
+ * Node 클래스 : 모든 XML 노드의 추상 슈퍼클래스다.
+ * Text : 텍스트만 포함하는 노드. <a>asdf</a> 에서 asdf 부분이 Text 클래스.
+ * NodeSeq : 노드의 시퀀스. 각각의 개별 노드를 한 원소짜리 NodeSeq라 생각할 수 있음.
  */
-object c28_i01 {
+object c28_i01 extends App {
+  val res0 =
+  <a>
+    This is some XML.
+    Here is a tag: <atag/>
+  </a>                                            //> res0  : scala.xml.Elem = <a>
+                                                  //|     This is some XML.
+                                                  //|     Here is a tag: <atag/>
+                                                  //|   </a>
+  // XML 리터럴의 중간에 중괄호로 이스케이프한 스칼라 코드를 넣을 수 있음.
+  <a> {"Hello"+", word"} </a>
+  
+  // xml.NodeSeq.Empty 은 아무것도 없음을 XML 노드로 표현한다.
+  val yearMade = 1955
+  <a> { if (yearMade < 2000) <old>{yearMade}</old>
+        else xml.NodeSeq.Empty }
+  </a>
+  
+  <a> {3 + 4} </a>
+  
+  // <, >, & 문자는 이스케이프 한다.
+  "<a>" + "</a>potential security hole<a>" + "</a>"
   
 }
